@@ -1,24 +1,22 @@
 ### Design a parking lot using object-oriented principles
 
-## Assumptions:
-# - The parking lot can hold motorcycles, cars and vans
-# - The parking lot has motorcycle spots, compact spots and large spots
-# - A motorcycle can park in any spot
-# - A car can park in a single compact spot, or a large spot
-# - A van can park, but it will take up 3 compact spots or a large spot.  For
-#   the purposes of this exercise, don't worry about if the compact spots are
-#   next to each other
-# - These are just a few assumptions. Feel free to ask your interviewer about
-#   more assumptions as needed
+### Assumptions:
+- The parking lot can hold motorcycles, cars and vans
+- The parking lot has motorcycle spots, compact spots and large spots
+- A motorcycle can park in any spot
+- A car can park in a single compact spot, or a large spot
+- A van can park, but it will take up 3 compact spots or a large spot.  For
+- the purposes of this exercise, don't worry about if the compact spots are next to each other
+- These are just a few assumptions. Feel free to ask your interviewer about  more assumptions as needed
 
-# Here are a few methods that you should be able to run:
-# - The ability to park a vehicle in the parking lot, and remove it later
-# - Tell us how many spots are remaining
-# - Tell us how many total spots are in the parking lot
-# - Tell us when the parking lot is full
-# - Tell us when the parking lot is empty
-# - Tell us when certain spots are full e.g. when all motorcycle spots are taken
-# - Tell us how many spots vans are taking up
+### Here are a few methods that you should be able to run:
+- The ability to park a vehicle in the parking lot, and remove it later
+- Tell us how many spots are remaining
+- Tell us how many total spots are in the parking lot
+- Tell us when the parking lot is full
+- Tell us when the parking lot is empty
+- Tell us when certain spots are full e.g. when all motorcycle spots are taken
+- Tell us how many spots vans are taking up
 
 
 ## Clarifying questions from my side : 
@@ -63,3 +61,22 @@ High level objects :
 
 Write test for the apis which are given : 
    
+
+#### Approach
+
+1. Wrote tests
+2. Listed out the domains and impleted those with ENUMS and data class
+3. Create interface
+   1. DAO interface
+   2. Service Interface
+   3. Strategy Interface
+4. Implemented Storage Adapter
+5. Implemented Service
+6. Implemented Strategies
+7. Created abstraction and extensibility by creating factories
+
+#### Improvements:
+
+1. Strategies about payment - Surge pricing 
+2. DAO should be of single ton impl
+3. Make sure the name of classes creaeted in test match - to some level
