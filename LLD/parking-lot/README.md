@@ -80,3 +80,4 @@ Write test for the apis which are given :
 1. Strategies about payment - Surge pricing 
 2. DAO should be of single ton impl
 3. Make sure the name of classes creaeted in test match - to some level
+4. While creating ENUM add a case which will never occur - this is a way to say we handle corner cases. Example ParkingSpotEnum for unknown status can be UNKNOWN
