@@ -7,6 +7,7 @@ import parkinglot.Enums.ParkingStatus;
 import java.util.UUID;
 
 public class ParkingSlot implements Comparable<ParkingSlot> {
+    // Parking Id can come from the creator of this object
     UUID id;
     Vehicle vehicle;
     ParkingSlotType parkingSlotType;

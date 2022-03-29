@@ -72,3 +72,10 @@ Enties of the system :
 5. Parking Spot
 6. Payment
 7. Parking ticket
+
+
+#### Suggestions :
+
+1. No need of CAR, Motorcycle... only have Vehicle class (as we are not doing anything in extended clas)
+2. In ParkingLotService separate admin apis for interface segregation
+3. In parkingLotDaoImpl => Pass parkingLot from service

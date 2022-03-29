@@ -12,8 +12,8 @@ import parkinglot.Domain.Vehicles.MotorCycle;
 import parkinglot.Domain.Vehicles.Van;
 import parkinglot.Domain.Vehicles.Vehicle;
 import parkinglot.Enums.ParkingSlotType;
-import parkinglot.Enums.VehicleType;
 import parkinglot.Interface.ParkingLotService;
+import parkinglot.Service.ParkingLotServiceImpl;
 
 import java.util.Arrays;
 

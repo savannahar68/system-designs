@@ -1,4 +1,4 @@
-package parkinglot;
+package parkinglot.Service;
 
 import parkinglot.Domain.ParkingFloor;
 import parkinglot.Domain.ParkingSlot;
@@ -12,7 +12,6 @@ import parkinglot.Interface.ParkingLotDao;
 import parkinglot.Interface.ParkingLotService;
 import parkinglot.Interface.ParkingLotStrategy;
 import parkinglot.Interface.PricingStrategy;
-import parkinglot.StorageAdapter.StrategyFactory;
 import parkinglot.Utils.Pair;
 
 import java.util.*;
@@ -26,7 +25,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
     public ParkingLotServiceImpl() {
         parkingLotDao = ParkingLotDaoFactory.getParkingLotDao();
-        pricingStrategy = StrategyFactory.getPricingStrategy();
+        pricingStrategy = ParkingLotDaoFactory.StrategyFactory.getPricingStrategy();
         perFloorParkingMapStratgy = new HashMap<>();
         parkingTicketMap = new HashMap<>();
     }
@@ -34,7 +33,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     @Override
     public void addParkingFloor(ParkingFloor parkingFloor) {
         parkingLotDao.addParkingFloor(parkingFloor);
-        perFloorParkingMapStratgy.put(parkingFloor.getLevel(), StrategyFactory.getParkingStrategy(parkingFloor.getParkingSlotList()));
+        perFloorParkingMapStratgy.put(parkingFloor.getLevel(), ParkingLotDaoFactory.StrategyFactory.getParkingStrategy(parkingFloor.getParkingSlotList()));
     }
 
     @Override
