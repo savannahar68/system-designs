@@ -5,6 +5,7 @@ import parkinglot.Domain.ParkingSlot;
 import parkinglot.Domain.ParkingTicket;
 import parkinglot.Domain.Payment;
 import parkinglot.Domain.Vehicles.Vehicle;
+import parkinglot.Enums.ParkingStatus;
 import parkinglot.Enums.VehicleType;
 import parkinglot.Factory.ParkingLotDaoFactory;
 import parkinglot.Interface.ParkingLotDao;
@@ -40,9 +41,9 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     public ParkingTicket parkVehicle(Vehicle vehicle) {
         Pair<Integer, List<ParkingSlot>> parkAssignedPair = assignParkingToVehicle(vehicle);
         // perform checks and validation if we have slot or null etc ...
+        setSlot(parkAssignedPair.value, ParkingStatus.RESERVED);
         vehicle.setParkingSlotList(parkAssignedPair.value);
         vehicle.setFloor(parkAssignedPair.key);
-        parkAssignedPair.value.forEach(it -> parkingLotDao.addParkingSlotToFloor(parkAssignedPair.key, it));
         ParkingTicket ticket = new ParkingTicket(parkAssignedPair.value.get(0));
         parkingTicketMap.put(vehicle, ticket);
         return ticket;
@@ -52,32 +53,37 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     public Payment unparkVehicle(Vehicle vehicle) {
         Payment payment = new Payment(pricingStrategy.getPrice(parkingTicketMap.get(vehicle)), parkingTicketMap.get(vehicle));
         perFloorParkingMapStratgy.get(vehicle.getFloor()).removeParking(vehicle);
+        setSlot(vehicle.getParkingSlotList(), ParkingStatus.AVAILABLE);
         return payment;
     }
 
     @Override
     public Payment unparkVehicle(ParkingTicket parkingTicket) {
-        return null;
+        Vehicle vehicle = parkingTicketMap.entrySet().stream().filter( it -> it.getValue().equals(parkingTicket)).findFirst().get().getKey();
+        Payment payment = new Payment(pricingStrategy.getPrice(parkingTicketMap.get(vehicle)), parkingTicketMap.get(vehicle));
+        perFloorParkingMapStratgy.get(vehicle.getFloor()).removeParking(vehicle);
+        setSlot(vehicle.getParkingSlotList(), ParkingStatus.AVAILABLE);
+        return payment;
     }
 
     @Override
     public Integer getTotalAvailableSpot() {
-        return null;
+        return parkingLotDao.getTotalAvailableSlots();
     }
 
     @Override
     public Integer getAvailableSpotByType(VehicleType vehicleType) {
-        return null;
+        return parkingLotDao.getAvailableSpotByType(vehicleType);
     }
 
     @Override
     public Integer totalSpotInParkingLot() {
-        return null;
+        return parkingLotDao.totalSpotInParkingLot();
     }
 
     @Override
     public Boolean isSpotFullForVehicle(VehicleType vehicleType) {
-        return null;
+        return getAvailableSpotByType(vehicleType) > 0;
     }
 
     private Pair<Integer, List<ParkingSlot>> assignParkingToVehicle(Vehicle vehicle) {
@@ -88,6 +94,10 @@ public class ParkingLotServiceImpl implements ParkingLotService {
             slotList = perFloorParkingMapStratgy.get(i).assignParking(vehicle);
             if (slotList.size() != 0) break;
         }
-        return new Pair<Integer, List<ParkingSlot>>(slotList, level);
+        return new Pair<Integer, List<ParkingSlot>>(level, slotList);
+    }
+
+    private void setSlot(List<ParkingSlot> slotList, ParkingStatus status) {
+        slotList.forEach(it -> it.setParkingStatus(status));
     }
 }

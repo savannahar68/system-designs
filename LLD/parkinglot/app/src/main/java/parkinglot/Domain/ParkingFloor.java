@@ -2,7 +2,6 @@ package parkinglot.Domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class ParkingFloor {
     List<ParkingSlot> parkingSlotList;
@@ -38,6 +37,4 @@ public class ParkingFloor {
     public void addParkingSlot(ParkingSlot slot) { this.parkingSlotList.add(slot); }
 
     public Integer getCapacity() { return this.capacity; }
-
-    public Integer getAvailableCapacity() { return parkingSlotList.size(); }
 }

@@ -3,12 +3,42 @@
  */
 package parkinglot;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import parkinglot.Domain.ParkingFloor;
+import parkinglot.Domain.ParkingSlot;
+import parkinglot.Domain.ParkingTicket;
+import parkinglot.Domain.Payment;
+import parkinglot.Domain.Vehicles.Car;
+import parkinglot.Domain.Vehicles.MotorCycle;
+import parkinglot.Domain.Vehicles.Van;
+import parkinglot.Domain.Vehicles.Vehicle;
+import parkinglot.Enums.ParkingSlotType;
+import parkinglot.Enums.VehicleType;
+import parkinglot.Interface.ParkingLotService;
 
+import java.util.Arrays;
+
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        ParkingLotService parkingLotService = new ParkingLotServiceImpl();
+
+        // Create floor in parking lot
+
+        ParkingSlot slot_0_1 = new ParkingSlot(ParkingSlotType.SMALL_SPOT);
+        ParkingSlot slot_0_2 = new ParkingSlot(ParkingSlotType.SMALL_SPOT);
+        ParkingSlot slot_0_3 = new ParkingSlot(ParkingSlotType.COMAPCT_SPOT);
+        ParkingSlot slot_0_4 = new ParkingSlot(ParkingSlotType.COMAPCT_SPOT);
+        ParkingSlot slot_0_5 = new ParkingSlot(ParkingSlotType.LARGE_SPOT);
+        ParkingFloor floor1 = new ParkingFloor(0, Arrays.asList(slot_0_1, slot_0_2, slot_0_3, slot_0_4, slot_0_5));
+
+        parkingLotService.addParkingFloor(floor1);
+
+        Vehicle motorCycle = new MotorCycle("AB-1");
+        Vehicle car = new Car("AB-2");
+        Vehicle van = new Van("AB-3");
+
+        ParkingTicket ticket = parkingLotService.parkVehicle(motorCycle);
+        System.out.println(ticket);
+        Payment payment = parkingLotService.unparkVehicle(motorCycle);
+        System.out.println(payment);
     }
 }

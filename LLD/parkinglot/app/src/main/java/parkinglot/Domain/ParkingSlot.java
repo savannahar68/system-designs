@@ -6,7 +6,7 @@ import parkinglot.Enums.ParkingStatus;
 
 import java.util.UUID;
 
-public class ParkingSlot {
+public class ParkingSlot implements Comparable<ParkingSlot> {
     UUID id;
     Vehicle vehicle;
     ParkingSlotType parkingSlotType;
@@ -37,5 +37,10 @@ public class ParkingSlot {
 
     public Vehicle getVehicle() {
         return vehicle;
+    }
+
+    @Override
+    public int compareTo(ParkingSlot o) {
+        return this.id.compareTo(o.getId());
     }
 }

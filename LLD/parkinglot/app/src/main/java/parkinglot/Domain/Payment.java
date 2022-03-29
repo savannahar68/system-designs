@@ -24,4 +24,13 @@ public class Payment {
     public ParkingTicket getParkingTicket() {
         return parkingTicket;
     }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", amount=" + amount +
+                ", parkingTicket=" + parkingTicket +
+                '}';
+    }
 }

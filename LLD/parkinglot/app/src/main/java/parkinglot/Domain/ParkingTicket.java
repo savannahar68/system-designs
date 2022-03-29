@@ -48,6 +48,17 @@ public class ParkingTicket {
     }
 
     public Integer getTotalParkingTime() {
-        return Math.toIntExact(Duration.between(this.entryTime, this.entryTime).abs().getSeconds() / (60*60));
+        return Math.max(Math.toIntExact((Duration.between(this.entryTime, this.entryTime).abs().getSeconds() / (60 * 60))), 1);
+    }
+
+    @Override
+    public String toString() {
+        return "ParkingTicket{" +
+                "id=" + id +
+                ", slot=" + slot +
+                ", entryTime=" + entryTime +
+                ", exitTime=" + exitTime +
+                ", fair=" + fair +
+                '}';
     }
 }
