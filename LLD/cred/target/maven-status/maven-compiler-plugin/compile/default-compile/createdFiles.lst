@@ -1,0 +1,17 @@
+com/phone/Domain/SearchRequest.class
+com/phone/Domain/Enums/SearchType.class
+com/phone/Exceptions/ContactManagerException.class
+com/phone/Domain/Enums/SearchField.class
+com/phone/Service/SearchContactUtil.class
+com/phone/Exceptions/FactoryException.class
+com/phone/Apis/ContactManager.class
+com/phone/Platform/DaoFactory.class
+com/phone/StorageAdapter/ContactStorageDaoImpl.class
+com/phone/Apis/ContactStorageDao.class
+com/phone/Domain/SearchResponse.class
+com/phone/Platform/ContactFactory.class
+com/phone/Domain/Contact.class
+com/phone/Service/SearchContactUtil$1.class
+com/phone/Service/ContactManagerImpl.class
+com/phone/Proxy/ContactManagerValidationProxy.class
+com/phone/Exceptions/DaoException.class

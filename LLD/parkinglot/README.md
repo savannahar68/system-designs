@@ -66,7 +66,7 @@ We'll be going with bottom up designign approach - design smallest component and
 Enties of the system :
 
 1. Parking Lot System
-2. Entrance
+2. Entrance 
 3. Vehicles => Reason for having this is at any point if we need list of Vehicles which were parked then we can get it
 4. Floor
 5. Parking Spot

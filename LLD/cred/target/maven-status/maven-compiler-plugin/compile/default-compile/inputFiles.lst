@@ -1,0 +1,16 @@
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Platform/DaoFactory.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Exceptions/FactoryException.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Exceptions/DaoException.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Apis/ContactStorageDao.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Proxy/ContactManagerValidationProxy.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Service/SearchContactUtil.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Domain/Enums/SearchField.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Platform/ContactFactory.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Apis/ContactManager.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Service/ContactManagerImpl.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Domain/Contact.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Domain/SearchRequest.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/StorageAdapter/ContactStorageDaoImpl.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Domain/Enums/SearchType.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Exceptions/ContactManagerException.java
+/home/anton/Desktop/code/cred/a94d9327-3941-4ab1-9003-2fad11726697/project/src/main/java/com/phone/Domain/SearchResponse.java
